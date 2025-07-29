@@ -1,3 +1,4 @@
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 class Usuario{
     constructor(info){
         this.urlFoto = info.urlFoto || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
@@ -5,11 +6,22 @@ class Usuario{
         this.edad = info.edad;
         this.correo = info.correo;
         this.contrasenia = info.contrasenia;
+        this.id = info.id;
     };
 
     generarTarjeta = () => {
-
         let article = document.createElement("article");
+
+        let boton = document.createElement("button");
+        boton.innerHTML = "&cross;";
+        boton.setAttribute("class", "btn-del");
+        boton.addEventListener("click", () => {
+            let idx = usuarios.findIndex(user => user.id === this.id);
+            usuarios.splice(idx, 1);
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            location.reload();
+        });
+        article.appendChild(boton);
 
         let img = document.createElement("img");
         img.setAttribute("src", this.urlFoto);
@@ -49,7 +61,6 @@ class Usuario{
         article.appendChild(div);
 
         return article;
-
     }
 
 };

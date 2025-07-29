@@ -56,6 +56,7 @@ article{
     box-sizing: border-box;
     gap: 20px;
     border-radius: 20px;
+    position: relative;
 }
 
 article img{
@@ -72,4 +73,26 @@ article div{
 
 article span{
     font-weight: bolder;
+}
+
+article .btn-del{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.btn-del{
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: red;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-del:hover{
+    background-color: rgb(255, 0, 0, 0.5);
+    color: white;
 }

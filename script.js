@@ -12,7 +12,8 @@ form.addEventListener("submit", (e) => {
         nombre: form.nombre.value,
         edad: form.edad.value,
         correo: form.correo.value,
-        contrasenia: form.contrasenia.value
+        contrasenia: form.contrasenia.value,
+        id: Math.floor(Math.random() * 500)-Math.floor(Math.random() * 500)
     };
 
     form.reset();
